@@ -49,6 +49,7 @@
 /*? FONTS - END*/
 
 /*? RESET STYLES */
+
 *,
 *:before,
 *:after {
@@ -100,10 +101,6 @@ a {
     line-height: 1.11;
 }
 
-.title_white {
-    color: #ffffff;
-}
-
 .title_big {
     color: #080a0e;
     font-family: CabinetGrotesk;
@@ -118,6 +115,10 @@ a {
     font-size: 24px;
     font-weight: 700;
     line-height: 1.5;
+}
+
+.title_white {
+    color: #ffffff;
 }
 
 .info {
@@ -313,6 +314,7 @@ a {
 }
 
 .burger__menu {
+    cursor: pointer;
 }
 
 .hero-bg {
@@ -324,7 +326,17 @@ a {
     object-fit: cover;
 }
 
+@media (max-width: 1400px) {
+    .title_big {
+        font-size: 54px;
+    }
+}
+
 @media (max-width: 1024px) {
+    .logo-text {
+        margin-bottom: 50px;
+    }
+
     .hero-bg {
         display: none;
     }
@@ -344,10 +356,6 @@ a {
 }
 
 @media (max-width: 768px) {
-    .logo-text {
-        margin-bottom: 50px;
-    }
-
     .title_big {
         font-size: 32px;
     }
@@ -373,8 +381,6 @@ a {
 }
 
 /*? SECTION  HERO - END */
-
-*/
 
 /*? SECTION ABOUT - START */
 
@@ -407,7 +413,7 @@ a {
     line-height: 36px;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
     .section {
         margin-bottom: 100px;
     }
@@ -535,7 +541,7 @@ a {
     margin-bottom: 20px;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
     .services__types {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -585,7 +591,7 @@ a {
 }
 
 .adv__content {
-    padding: 60px 0;
+    padding: 60px 10px;
     max-width: 880px;
     width: 100%;
     top: 0;
@@ -727,7 +733,7 @@ a {
     gap: 10px;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1024px) {
     .testimonial {
         padding: 110px 0px;
     }
@@ -854,6 +860,11 @@ a {
     width: 100%;
 }
 
+.imgs-container__item {
+    max-width: 545px;
+    position: relative;
+}
+
 .portfolio__imgs-container {
     margin: 0 auto;
     max-width: 1920px;
@@ -865,17 +876,56 @@ a {
     flex-wrap: nowrap;
 }
 
-.imgs-container__item {
-    max-width: 545px;
+.item__overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 90%;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: start;
+    justify-content: end;
+    flex-direction: column;
+    opacity: 0;
+    transition: all 0.3s;
 }
 
-@media (max-width: 1280px) {
-    .portfolio__header {
-        margin-bottom: 35px;
+.item__overlay:hover {
+    opacity: 1;
+}
+
+.item__overlay-title {
+    max-width: 376px;
+    width: 100%;
+    color: #fff;
+    font-family: CabinetGrotesk;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1400px) {
+    .item__overlay-title {
+        font-size: 24px;
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
+    .portfolio__header {
+        margin-bottom: 35px;
+    }
+
+    .item__overlay-title {
+        font-size: 18px;
+    }
+
+    .item__overlay_btn {
+        font-size: 10px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -885,6 +935,10 @@ a {
         grid-template-columns: 1fr 1fr;
         justify-items: center;
         gap: 20px;
+    }
+
+    .item__overlay-title {
+        font-size: 14px;
     }
 }
 
@@ -951,6 +1005,131 @@ a {
 
 /*? SECTION PARTNERS - END */
 
+/* ? SECTION PRICING - START */
+
+.pricing {
+    position: relative;
+    background-color: #080a0ed5;
+    padding: 150px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pricing__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.pricing__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.pricing__title {
+    margin-bottom: 30px;
+}
+
+.pricing__descr {
+    margin-bottom: 50px;
+    max-width: 1009px;
+    width: 100%;
+    text-align: center;
+}
+
+.therapy__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.therapy__item {
+    max-width: 1290px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 41px 50px;
+    gap: 20px;
+    backdrop-filter: blur(15px);
+}
+
+.therapy__title {
+    max-width: 142px;
+    width: 100%;
+    line-height: 1.5;
+}
+
+.therapy__price {
+    max-width: 209px;
+    width: 100%;
+    color: #fff;
+    font-family: CabinetGrotesk;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.therapy__descr {
+    max-width: 409px;
+    width: 100%;
+}
+
+@media (max-width: 1400px) {
+    .pricing {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .therapy__price {
+        font-size: 28px;
+    }
+
+    .therapy__item {
+        padding: 20px 25px;
+    }
+
+    .pricing__title {
+        font-size: 16px;
+    }
+
+    .therapy__descr {
+        font-size: 12px;
+    }
+
+    .therapy__btn {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .therapy__item {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .pricing__descr {
+        margin-bottom: 20px;
+    }
+
+    .pricing {
+        padding: 15px;
+    }
+}
+
+/* ? SECTION PRICING - END */
+
 /*? SECTION NEWS - START  */
 
 .news__header {
@@ -1014,10 +1193,170 @@ a {
     }
 }
 
-@media (max-width: 480px) {
+/*? SECTION NEWS - END  */
+
+/* ? SECTION FOOTER - START*/
+.footer {
+    position: relative;
+    padding: 0 50px;
 }
 
-/*? SECTION NEWS - END  */
+.footer-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.footer-up {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    gap: 20px;
+    padding: 100px 0;
+}
+
+.footer__title {
+    max-width: 992px;
+    width: 100%;
+}
+
+.footer-down {
+    padding: 56px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.logo-text_white {
+    color: #ffffff;
+    margin: 0;
+}
+
+.copyright {
+    color: #ffffff;
+}
+
+.media__list {
+    max-width: 190px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.media__item {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.15);
+    transition: all 0.3s;
+}
+
+.media__item:hover {
+    background-color: #2f82fe;
+}
+
+.media-img {
+    width: 20px;
+}
+
+@media (max-width: 1400px) {
+    .footer {
+        padding: 0 25px;
+    }
+
+    .footer__title {
+        font-size: 36px;
+    }
+
+    .footer-up {
+        padding: 50px 0;
+    }
+
+    .footer-down {
+        padding: 25px 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer {
+        padding: 0 15px;
+    }
+
+    .footer__title {
+        font-size: 24px;
+    }
+
+    .footer-up {
+        padding: 25px 0;
+    }
+
+    .footer-down {
+        padding: 15px 0;
+    }
+
+    .footer__btn {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 0 10px;
+    }
+
+    .footer__title {
+        font-size: 14px;
+    }
+
+    .footer-up {
+        padding: 15px 0;
+    }
+
+    .footer-down {
+        padding: 10px 0;
+    }
+
+    .copyright {
+        font-size: 12px;
+    }
+
+    .media__item {
+        width: 25px;
+        height: 25px;
+    }
+
+    .media-img {
+        width: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-up {
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .footer-down {
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* ? SECTION FOOTER - END*/
 
 /* !!! 
  1024 - 1400 - laptop
